@@ -43,7 +43,7 @@ public class CamelRouteProducer extends RouteBuilder {
           //.to("jms:topic:demoTopic")
           //.log("Delivered to jms:topic:demoTopic")
           //.setBody().constant("Hello3")
-    	  .convertBodyTo(String.class)
+    	  //.convertBodyTo(String.class)
     	  .setHeader(KafkaConstants.KEY, constant("Demo"))
     	  .to("kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092");
           //.setBody().constant("Hello4")
