@@ -5,6 +5,7 @@ import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.hl7.HL7MLLPNettyDecoderFactory;
 import org.apache.camel.component.hl7.HL7MLLPNettyEncoderFactory;
+import org.apache.camel.component.kafka.KafkaConstants;
 import org.springframework.context.annotation.Bean;
 
 public class CamelRouteProducer extends RouteBuilder {
@@ -43,6 +44,7 @@ public class CamelRouteProducer extends RouteBuilder {
           //.log("Delivered to jms:topic:demoTopic")
           //.setBody().constant("Hello3")
     	  .convertBodyTo(String.class)
+    	  .setHeader(KafkaConstants.KEY, constant("Demo"))
     	  .to("kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092");
           //.setBody().constant("Hello4")
           //.to("jms:topic:demoQueue")
