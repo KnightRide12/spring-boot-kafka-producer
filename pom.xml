@@ -15,6 +15,8 @@
 	<description>Kafka Spring Boot Producer</description>
 
 	<properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<fabric8.version>2.3.7</fabric8.version>
 		<spring-boot.version>1.5.13.RELEASE</spring-boot.version>
@@ -48,6 +50,10 @@
     </dependencyManagement>
     
 	<dependencies>
+	    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
