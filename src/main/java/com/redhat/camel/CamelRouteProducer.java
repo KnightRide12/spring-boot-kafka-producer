@@ -7,7 +7,9 @@ import org.apache.camel.component.hl7.HL7MLLPNettyDecoderFactory;
 import org.apache.camel.component.hl7.HL7MLLPNettyEncoderFactory;
 import org.apache.camel.component.kafka.KafkaConstants;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CamelRouteProducer extends RouteBuilder {
 
 	@Bean
