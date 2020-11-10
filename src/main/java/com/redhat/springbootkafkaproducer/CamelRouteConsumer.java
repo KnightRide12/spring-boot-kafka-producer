@@ -28,19 +28,7 @@ public class CamelRouteConsumer extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		from("kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092&groupId=demo-consumer")
-    	  .log("Message received from Kafka: ${body}");
-          //.setBody().constant("Hello4")
-          //.to("jms:topic:demoQueue")
-          //.log("Delivered to jms:topic:demoQueue")
-          //.setBody().constant("Hello5")
-          //.to("jms:topic:demoTopic.demoQueue")
-          //.log("Delivered to jms:topic:demoTopic.demoQueue")
-          //.setBody().constant("Hello6")
-          //.to("jms:queue:demoTopic.demoQueue")
-          //.log("Delivered to jms:queue:demoTopic.demoQueue");
-		
-		  //jmsTemplate.convertAndSend(destinationQueue, "Hello!!");
-          
-
+    	  .log("Message received from Kafka: ${body}")
+    	  .to("netty4:tcp://a7d5f03d272ac4fa8b1cf37a7840c855-1169747859.us-west-1.elb.amazonaws.com:3280?sync=true&decoder=#hl7Decoder&encoder=#hl7Encoder");
 	}
 }
