@@ -28,7 +28,7 @@ public class CamelRouteConsumer extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		from("kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092&groupId=demo-consumer")
-    	  .log("Message received from Kafka: ${body}")
+    	  .log("Message received from my-topic: ${body}")
     	  .to("netty4:tcp://a7d5f03d272ac4fa8b1cf37a7840c855-1169747859.us-west-1.elb.amazonaws.com:3280?sync=true&decoder=#hl7Decoder&encoder=#hl7Encoder");
 	}
 }
