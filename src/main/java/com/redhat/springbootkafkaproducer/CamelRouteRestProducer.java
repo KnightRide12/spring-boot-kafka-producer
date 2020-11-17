@@ -9,7 +9,7 @@ public class CamelRouteRestProducer extends RouteBuilder {
 	
 	@Override
 	public void configure() throws Exception {
-		restConfiguration().component("netty4-http").host("localhost").port(3080).bindingMode(RestBindingMode.auto);
+		restConfiguration().component("netty-http").host("0.0.0.0").port(3080).bindingMode(RestBindingMode.auto);
 		
 		rest("/messages/")
 		    .post().type(String.class)
