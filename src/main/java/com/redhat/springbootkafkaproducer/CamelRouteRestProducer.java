@@ -9,7 +9,7 @@ public class CamelRouteRestProducer extends RouteBuilder {
 	
 	@Override
 	public void configure() throws Exception {
-		restConfiguration().component("servlet").host("localhost").port(8080).bindingMode(RestBindingMode.auto);
+		restConfiguration().component("servlet").host("localhost").port(8080).apiContextPath("/rest").bindingMode(RestBindingMode.auto);
 		
 		rest("/messages/")
 		    .post().route()
