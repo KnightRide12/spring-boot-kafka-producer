@@ -29,6 +29,6 @@ public class CamelRouteConsumer extends RouteBuilder {
 	public void configure() throws Exception {
 		from("kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092&groupId=demo-consumer")
     	  .log("Message received from my-topic: ${body}")
-    	  .to("netty4:tcp://ae93ed7ea90f6497d88974370fb82f52-2119074969.us-east-2.elb.amazonaws.com:3280?sync=true&decoder=#hl7Decoder&encoder=#hl7Encoder");
+    	  .to("netty4:tcp://afff44cd8f2994310a591bb05e4145e5-1429467293.us-west-1.elb.amazonaws.com:3280?sync=true&decoder=#hl7Decoder&encoder=#hl7Encoder");
 	}
 }
